@@ -1,9 +1,17 @@
 <?php
-
+/**
+ * データベースシーダー
+ */
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
 
+/**
+ * データベースSeederクラスです。
+ *
+ * @author Satoshi Nagashiba <bobtabo.buhibuhi@gmail.com>
+ * @package Database\Seeders
+ */
 class DatabaseSeeder extends Seeder
 {
     /**
@@ -13,6 +21,6 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // \App\Models\User::factory(10)->create();
+        $this->call(CustomerSeeder::class);
     }
 }

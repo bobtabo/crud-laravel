@@ -1,0 +1,49 @@
+<?php
+/**
+ * 顧客更新リクエスト
+ */
+namespace App\Http\Requests\Api;
+
+use App\Http\Requests\AppRequest;
+
+/**
+ * 顧客更新Requestクラスです。
+ *
+ * @author Satoshi Nagashiba <bobtabo.buhibuhi@gmail.com>
+ * @package App\Http\Requests\Api
+ */
+class CustomerUpdateRequest extends AppRequest
+{
+    /**
+     * {@inheritdoc}
+     */
+    public function rules()
+    {
+        return [
+            'last_name' => 'required|max:50',
+            'first_name' => 'required|max:50',
+            'last_kana' => 'required|max:50',
+            'first_kana' => 'required|max:50',
+            'gender' => 'required',
+            'birthday' => 'required|date|date_format:Y-m-d',
+            'post_code' => ['required', 'regex:/^[0-9]{3}-[0-9]{4}$/'],
+            'pref_id' => 'required',
+            'city_id' => 'required',
+            'address' => 'required|max:80',
+            'building' => 'nullable|max:80',
+            'tel' => ['required', 'regex:/^0\d{1,3}-\d{1,4}-\d{4}$/'],
+            'mobile' => ['required', 'regex:/^(070|080|090)-\d{4}-\d{4}$/'],
+            'email' => 'required|max:80|email|unique_email',
+        ];
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function messages()
+    {
+        return [
+            'email.unique_email' => 'メールアドレスは既に登録されています。',
+        ];
+    }
+}
