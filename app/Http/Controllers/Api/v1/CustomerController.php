@@ -1,8 +1,8 @@
 <?php
-
-
+/**
+ * 顧客コントローラー
+ */
 namespace App\Http\Controllers\Api\v1;
-
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Api\CustomerRegistRequest;
@@ -13,6 +13,12 @@ use DB;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 
+/**
+ * 顧客Controllerクラスです。
+ *
+ * @author Satoshi Nagashiba <bobtabo.buhibuhi@gmail.com>
+ * @package App\Http\Controllers\Api\v1
+ */
 class CustomerController extends Controller
 {
     /**

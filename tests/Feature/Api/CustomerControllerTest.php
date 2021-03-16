@@ -4,6 +4,7 @@
  */
 namespace Tests\Feature\Api;
 
+use App\Enums\Gender;
 use App\Models\Customer;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
 use Illuminate\Foundation\Testing\WithoutMiddleware;
@@ -46,7 +47,7 @@ class CustomerControllerTest extends TestCase
     public function testSearch(): void
     {
         $params = [
-            'gender' => '1'
+            'gender' => Gender::MEN
         ];
         $response = $this->post('api/v1/customer', $params);
         $response->assertStatus(Response::HTTP_OK);

@@ -53,11 +53,6 @@ class CustomerService extends AbstractService
             $query = $query->whereIn('gender', $genders);
         }
 
-        //都道府県で検索します
-        if (!empty($input['pref_id'])) {
-            $query = $query->where('pref_id', '=', $input['pref_id']);
-        }
-
         return $query->get();
     }
 

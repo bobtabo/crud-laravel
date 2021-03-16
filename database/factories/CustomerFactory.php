@@ -4,6 +4,7 @@
  */
 namespace Database\Factories;
 
+use App\Enums\Gender;
 use App\Models\Customer;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
@@ -36,7 +37,7 @@ class CustomerFactory extends Factory
             'first_name' => $this->faker->firstName,
             'last_kana' => $this->faker->lastKanaName,
             'first_kana' => $this->faker->firstKanaName,
-            'gender' => rand(1, 2),
+            'gender' => rand(Gender::MEN, Gender::WOMEN),
             'post_code' => $postCode,
             'address' => $address[2],
             'building' => (empty($address[3]) ? null : $address[3]),
