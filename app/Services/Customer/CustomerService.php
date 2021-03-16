@@ -23,7 +23,7 @@ class CustomerService extends AbstractService
      * @param array|null $input 検索条件
      * @return Collection コレクション
      */
-    public function getList(?array $input): Collection
+    public function getList(?array $input = null): Collection
     {
         if (empty($input)) {
             return Customer::all();

@@ -81,7 +81,7 @@ class CustomerController extends Controller
      * @return Response レスポンス
      * @throws \Throwable 顧客登録エラー時にスローされる例外です
      */
-    public function regist(CustomerRegistRequest $request): Response
+    public function store(CustomerRegistRequest $request): Response
     {
         DB::transaction(function () use ($request) {
             Customer::save($request->input());

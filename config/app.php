@@ -178,6 +178,7 @@ return [
         /*
          * for Crud
          */
+        App\Providers\ResponseServiceProvider::class,
         App\Providers\ValidatorExServiceProvider::class,
         App\Services\Customer\CustomerServiceProvider::class,
     ],

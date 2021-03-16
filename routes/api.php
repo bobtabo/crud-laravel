@@ -16,7 +16,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::group(['namespace' => 'Api\v1', 'prefix' => 'v1'], function () {
-    Route::prefix('/customers')->group(function () {
+    Route::prefix('/customer')->group(function () {
         //検索一覧表示
         Route::get('', [CustomerController::class, 'index'])->name('customer_index');
 
@@ -33,13 +33,12 @@ Route::group(['namespace' => 'Api\v1', 'prefix' => 'v1'], function () {
         Route::get('/edit/{id}', [CustomerController::class, 'edit'])->name('customer_edit');
 
         //新規登録で登録時
-        Route::post('/regist', [CustomerController::class, 'regist'])->name('customer_regist');
+        Route::post('/store', [CustomerController::class, 'store'])->name('customer_store');
 
         //編集で更新時
         Route::put('/update', [CustomerController::class, 'update'])->name('customer_update');
 
         //詳細で削除
-        Route::delete('/delete/{id}', [CustomerController::class, 'delete'])->name('customer_delete');
-
+        Route::delete('/delete', [CustomerController::class, 'delete'])->name('customer_delete');
     });
 });
